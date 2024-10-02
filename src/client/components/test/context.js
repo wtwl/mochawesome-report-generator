@@ -83,10 +83,10 @@ class TestContext extends Component {
   );
 
   renderLink = (url, title) => {
-    const linkUrl = `${protocolRegEx.test(url) ? '' : 'http://'}${url}`;
+    // const linkUrl = `${protocolRegEx.test(url) ? '' : 'http://'}${url}`; 
     return (
       <a
-        href={linkUrl}
+        href={url}
         className={cx('text-link')}
         rel="noopener noreferrer"
         target="_blank"
@@ -114,7 +114,7 @@ class TestContext extends Component {
     }
 
     // URLs
-    if (urlRegEx.test(content)) {
+    if (urlRegEx.test(content) || content.startsWith) {
       return this.renderLink(content, title);
     }
 
